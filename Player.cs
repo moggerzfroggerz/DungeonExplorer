@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DungeonExplorer
 {
@@ -13,13 +14,34 @@ namespace DungeonExplorer
             Name = name;
             Health = health;
         }
-        public void PickUpItem(string item)
+        public void FindItems(string item)
         {
-
+        inventory.Add(item);
         }
-        public string InventoryContents()
+        public string Backpack()
         {
             return string.Join(", ", inventory);
+        }
+        public int showHealth()
+        {
+            return this.Health;
+        }
+        public string Eat()
+        {
+            Console.WriteLine("You ate some bread and have healed 40 health.");
+            this.Health = this.Health + 40;
+            return $"Your health is: {this.Health}";
+        }
+        public bool FindItems()
+        {
+            if (inventory.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
