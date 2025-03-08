@@ -49,11 +49,11 @@ namespace DungeonExplorer
                         Console.WriteLine($"Your backpack contains: {player.Backpack()}");
                         Console.WriteLine("Enter u to use the key to unlock a door or r to return it to the backpack.");
                         string secondInput = Console.ReadLine();
-                        if (secondInput == ("r")) 
+                        if (secondInput == ("r"))
                         {
                             Console.WriteLine("Key has been returned to backpack");
                         }
-                        else if (secondInput == ("u")) 
+                        else if (secondInput == ("u"))
                         {
                             Console.WriteLine("Door one is made of rotting wood and is covered in rust and moss. Door two is made of shiny metal.");
                             Console.WriteLine("Enter 1 to try the key in door one.");
@@ -68,7 +68,7 @@ namespace DungeonExplorer
                             if (doorChoiceInput == ("2"))
                             {
                                 Console.WriteLine("Regardless of how hard you try, the key does not fit and the door will not open.");
-                                Console.WriteLine("In the time it took you to try the door, the scary slug regained some of its strength");
+                                Console.WriteLine("In the time it took you to try the door, the scary slug regained 10 health.");
                                 monster.Heal();
                                 Console.WriteLine(monster.getHealth());
                             }
@@ -94,19 +94,21 @@ namespace DungeonExplorer
 
         }
         private string ExplorerInput()
-{
-    Console.WriteLine("From here, you can choose from the following options:");
-    Console.WriteLine("Enter d to deal damage");
-    Console.WriteLine("Enter e to eat food and regain health");
-    if (player.FindItems() == false)
-    {
-        Console.WriteLine("Enter s to search for items");
+        {
+            Console.WriteLine("From here, you can choose from the following options:");
+            Console.WriteLine("Enter d to deal damage");
+            Console.WriteLine("Enter e to eat food and regain health");
+            if (player.FindItems() == false)
+            {
+                Console.WriteLine("Enter s to search for items");
+            }
+            if (player.FindItems() == true)
+            {
+                Console.WriteLine("Enter b to view the backpack contents");
+            }
+
+            string input = Console.ReadLine();
+            return input;
+        }
     }
-    if (player.FindItems() == true)
-    {
-        Console.WriteLine("Enter b to view the backpack contents");
-    }
-    
-    string input = Console.ReadLine();
-    return input;
 }
