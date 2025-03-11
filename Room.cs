@@ -6,7 +6,7 @@ namespace DungeonExplorer
     {
         private string description;
         private List<string> inventory = new List<string>();
-
+        // The code below contains the items in the room. 
         public Room(string description)
         {
             this.description = description;
