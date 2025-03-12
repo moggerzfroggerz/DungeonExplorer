@@ -1,10 +1,12 @@
 using System;
 using System.ComponentModel;
 using System.ComponentModel.Design;
+using System.Diagnostics;
 using System.Media;
 using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Threading;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DungeonExplorer
 {
@@ -98,7 +100,7 @@ namespace DungeonExplorer
                     }
                     playing = false;
                 }
-                // Damaging the monster until its health is less than 0 is the second path to win the game. 
+                // Damaging the monster until its health is less than 0 is the second path to win the game.
                 Console.WriteLine("You have killed the Scary Slug.");
                 Console.WriteLine("Congratulations, you have won the game!");
 
@@ -125,8 +127,9 @@ namespace DungeonExplorer
                 Console.WriteLine("Enter b to view the backpack contents");
             }
 
-            // The 2 lines of code below assigns the user's input as a string to the value 'input' to be used in the main game program. 
             string input = Console.ReadLine();
+            // I used Debug.Assert here to test and make sure that the user input a correct value into the game.
+            Debug.Assert(input == "d" || input == "e" || input == "s" || input == "b", "Test failure. Please input one of the letters shown on the screen.");
             return input;
         }
     }
