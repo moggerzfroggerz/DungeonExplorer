@@ -13,9 +13,11 @@ namespace DungeonExplorer
         public Player(string name, int health) 
         {
             Name = name;
+            // This will check that the user's health is a positive integer and above 0. It could be useful in the future once the monster can attack
+            Tests.TestForPositiveInteger(health);
             Health = health;
         }
-        // The string below adds the item the user found to their inventory. 
+        // The string below adds the item that the user found to their inventory. 
         public void FindItems(string item)
         {
         inventory.Add(item);
