@@ -17,16 +17,6 @@ namespace DungeonExplorer
             Tests.TestForPositiveInteger(health);
             Health = health;
         }
-        // The string below adds the item that the user found to their inventory. 
-        public void FindItems(string item)
-        {
-        inventory.Add(item);
-        }
-        // The string below returns all the items in the player's backpack (inventory). 
-        public string Backpack()
-        {
-            return string.Join(", ", inventory);
-        }
         // The code below returns the user's health value. 
         public int ShowHealth()
         {
@@ -39,18 +29,11 @@ namespace DungeonExplorer
             this.Health = this.Health + 40;
             return $"Your health is: {this.Health}";
         }
-        // The boolean (true or false data type) value below will return true if the user has something in their inventory and false if they don't. 
-        // This can be called in the main program to determine whether the user has searched for items or not. 
-        public bool FindItems()
+        public string Hurt()
         {
-            if (inventory.Count > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            Console.WriteLine("You have been hurt and lost 10 health!");
+            this.Health = this.Health - 10;
+            return $"Your health is: {this.Health}";
         }
     }
 }

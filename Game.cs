@@ -44,15 +44,15 @@ namespace DungeonExplorer
                     {
                         Console.WriteLine(monster.Damage());
                     }
-                    else if (input == ("s") && player.FindItems() == false)
+                    else if (input == ("s") && Inventory.FindItems() == false)
                     {
                         string PlayerInv = currentRoom.RoomItems();
-                        player.FindItems(PlayerInv);
+                        Inventory.FindItems(PlayerInv);
                         Console.WriteLine($"On the floor, there was {PlayerInv} and you picked it up.");
                     }
-                    else if (input == ("b") && player.FindItems() == true)
+                    else if (input == ("b") && Inventory.FindItems() == true)
                     {
-                        Console.WriteLine($"Your backpack contains: {player.Backpack()}");
+                        Console.WriteLine($"Your backpack contains: {Inventory.Backpack()}");
                         Console.WriteLine("Enter u to use the key to unlock a door or r to return it to the backpack.");
                         string secondInput = Console.ReadLine();
                         if (secondInput == ("r"))
@@ -118,11 +118,11 @@ namespace DungeonExplorer
 
             // The conditional statements below makes sure that whilst the user hasn't searched for items, they can't use them. 
             // It won't give them the option to view the backpack contents, and consequently unlock any doors, until they have searched for items. 
-            if (player.FindItems() == false)
+            if (Inventory.FindItems() == false)
             {
                 Console.WriteLine("Enter s to search for items");
             }
-            if (player.FindItems() == true)
+            if (Inventory.FindItems() == true)
             {
                 Console.WriteLine("Enter b to view the backpack contents");
             }
