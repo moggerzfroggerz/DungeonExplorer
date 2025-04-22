@@ -10,12 +10,24 @@ namespace DungeonExplorer
         public int Health { get; private set; }
         private List<string> inventory = new List<string>();
 
-        public Player(string name, int health) 
+        public Player(string name, int health)
         {
             Name = name;
-            // This will check that the user's health is a positive integer and above 0. It could be useful in the future once the monster can attack
             Tests.TestForPositiveInteger(health);
             Health = health;
+        }
+        public void AddItem(string item)
+        {
+            inventory.Add(item);
+        }
+        public bool HasItems()
+        {
+            return inventory.Count > 0;
+        }
+
+        public string ShowInventory()
+        {
+            return inventory.Count > 0 ? string.Join(", ", inventory) : "Your backpack is empty";
         }
         // The code below returns the user's health value. 
         public int ShowHealth()
