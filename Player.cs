@@ -47,5 +47,14 @@ namespace DungeonExplorer
             this.Health = this.Health - 10;
             return $"Your health is: {this.Health}";
         }
+        public void DamagePlayer(int damage)
+        {
+            Health = Health - damage;
+            Console.WriteLine($"You have been attacked and lost {damage} points! Player Health: {Health}");
+        }
+        public bool Escaped()
+        {
+            return Health > 0;
+        }
     }
 }
